@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+#include <vector>
+
+using namespace std;
+
+vector<int> cutTheSticks(vector<int>& arr) {
+    sort(arr.begin(), arr.end());
+    vector<int> sticks;
+    
+    for(int i = 0; i < arr.size(); i++){
+        //i = 0;
+        
+        while(arr[i] == 0){
+            i++;
+        }
+        int erase = arr[i];
+        int count = 0;
+        for(int j = i; j < arr.size(); j++){
+            
+            arr[j] = arr[j] - erase;
+            count++;
+            
+        }
+        if(count != 0){
+            sticks.push_back(count);
+        }
+    }
+
+    return sticks;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> cuts(n);
+
+    for(int i = 0; i < n; i++){
+        cin>>cuts[i];
+    }
+
+    vector<int> result = cutTheSticks(cuts);
+
+    for(int i = 0; i < result.size(); i++){
+        cout<<result[i]<<endl;
+    }
+
+    return 0;
+}
