@@ -7,20 +7,19 @@ vector<int> cutTheSticks(vector<int>& arr) {
     sort(arr.begin(), arr.end());
     vector<int> sticks;
     
-    for(int i = 0; i < arr.size(); i++){
-        //i = 0;
-        
+    for(int i = 0; i < arr.size(); i++){        
         while(arr[i] == 0){
             i++;
         }
+        
         int erase = arr[i];
         int count = 0;
-        for(int j = i; j < arr.size(); j++){
-            
+        
+        for(int j = i; j < arr.size(); j++){            
             arr[j] = arr[j] - erase;
             count++;
-            
         }
+        
         if(count != 0){
             sticks.push_back(count);
         }
